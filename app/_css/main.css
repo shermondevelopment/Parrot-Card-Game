@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+@import url('./reset.css');
+
+.main {
+  height: 100vh;
+  background-color: #EEF9BF;
+  display: flex;
+  justify-content: center;
+}
+
+.main__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 56px;
+  color: #75B79E;
+  margin-top: 40px;
+}
