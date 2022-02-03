@@ -2,11 +2,15 @@
 
 @import url('./reset.css');
 
+body {
+  background-color:  #EEF9BF;
+}
+
 .main {
-  height: 100vh;
-  background-color: #EEF9BF;
+  padding: 0 10px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main__title {
@@ -14,4 +18,33 @@
   font-size: 56px;
   color: #75B79E;
   margin-top: 40px;
+}
+
+.main__cards {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 117px;
+  height: 146px;
+  margin: 0 34px 34px 0;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  background: #A7E9AF;
+  border: 1px solid #99CEA8;
+  border-radius: 5px;
+}
+
+.card__figure {
+  width:100px;
+  height: 100px;
+  user-select: none;
 }
