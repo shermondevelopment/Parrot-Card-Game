@@ -20,10 +20,31 @@ body {
   margin-top: 40px;
 }
 
+.main__setting {
+  width: 100%;
+  margin-top: 30px;
+  max-width: 1000px;
+  display: flex;
+  justify-content: flex-end;
+}
+.main__optionTime {
+  margin-right: 40px;
+}
+
+.main__optionTime, .main__optionPlay {
+  display: flex;
+  align-items: center;
+}
+
+.main__optionTime span, .main__optionPlay span {
+  margin-left: 25px;
+  font-family: 'Roboto', sans-serif;
+}
+
 .main__cards {
   width: 100%;
   max-width: 1000px;
-  margin-top: 50px;
+  margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -41,10 +62,45 @@ body {
   background: #A7E9AF;
   border: 1px solid #99CEA8;
   border-radius: 5px;
+  position: relative;
+  transform: rotateY(0);
+  transform-style: preserve-3d;
+  transition: transform 0.3s linear;
 }
 
 .card__figure {
   width:100px;
   height: 100px;
   user-select: none;
+}
+
+[data-identifier="back-face"], [data-identifier="front-face"] {
+  position:absolute;
+}
+
+[data-identifier="back-face"] {
+  display: none;
+}
+
+.rotate {
+  transform: rotateY(-180deg)
+}
+
+.rotate .upturned--card {
+  display: block;
+}
+.rotate .untapped-card {
+  display: none;
+}
+
+.check  {
+  transform: rotateY(-180deg)
+}
+
+.check  .upturned--card {
+ display: block;
+}
+
+.check   .untapped-card {
+  display: none;
 }
