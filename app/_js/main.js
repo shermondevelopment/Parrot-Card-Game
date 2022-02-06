@@ -50,7 +50,7 @@ function showCards() {
   cardBox.innerHTML = ''
   let figures = shuffleCards()
   for(let i = 0; i < numberCards; i++) {
-    cardBox.innerHTML += templateCard(figures[i])
+    cardBox.innerHTML += templateCard(figures[i], i)
   }
 }
 
@@ -58,9 +58,9 @@ function showCards() {
 /* templateCard retorna o template a qual o card será renderizado na tela
 */
 
-function templateCard(figure) {
+function templateCard(figure, index) {
   return `
-    <card class="card" data-identifier="card" data-card="${figure}" onclick="clickedMe(this)">
+    <card class="card" data-identifier="card" data-card="${figure}" data-index="${index}" onclick="clickedMe(this)">
     <card-back data-identifier="back-face" class="upturned--card">
       <img
         src="app/_image/${figure}"
@@ -78,7 +78,7 @@ function templateCard(figure) {
 /* ex: usuario clicou em duas cartas mais ambas não corresponde então essa função e chamada
 */
 function turnCards() {
-  let cards = document.querySelectorAll('.card.rotate');
+  let cards = document.querySelectorAll('.card');
 
   cards.forEach( item => item.classList.remove('rotate') )
 }
@@ -92,12 +92,12 @@ function checkEqualityCards(me) {
   if(!firstCart) {
     firstCart = me
   }
-  if(firstCart.dataset.card === secondCart.dataset.card) {
+  if(firstCart?.dataset.card === secondCart?.dataset.card && secondCart.dataset.index !== firstCart.dataset.index) {
     firstCart.classList.add('check')
     secondCart.classList.add('check')
   }
 
-  if(firstCart.dataset.card !== secondCart.dataset.card) {
+  if(firstCart.dataset.card !== secondCart.dataset.card || secondCart.dataset.index == firstCart.dataset.index) {
     setTimeout(turnCards, 500)
   }
 
